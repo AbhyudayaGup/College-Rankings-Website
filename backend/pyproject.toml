@@ -1,0 +1,62 @@
+[tool.poetry]
+name = "college-rankings-backend"
+version = "1.0.0"
+description = "College rankings aggregator backend - Django REST API"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+Django = "^5.0"
+djangorestframework = "^3.14"
+django-cors-headers = "^4.3"
+requests = "^2.31"
+beautifulsoup4 = "^4.12"
+lxml = "^4.9"
+selenium = "^4.15"
+celery = "^5.3"
+redis = "^5.0"
+python-decouple = "^3.8"
+psycopg2-binary = "^2.9"
+gunicorn = "^21.2"
+whitenoise = "^6.6"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.4"
+pytest-django = "^4.7"
+black = "^23.11"
+flake8 = "^6.1"
+isort = "^5.12"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | migrations
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+skip = ["migrations", ".venv"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings"
+python_files = ["test_*.py", "*_test.py"]
