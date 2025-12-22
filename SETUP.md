@@ -17,7 +17,7 @@ npm --version      # Should show 9+
 
 ---
 
-## Backend Setup
+## Backend
 
 ### Step 1: Navigate to Backend
 ```bash
