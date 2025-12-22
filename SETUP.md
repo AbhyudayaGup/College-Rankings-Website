@@ -82,7 +82,7 @@ python manage.py fetch_rankings --all
 python manage.py runserver
 ```
 
-✅ Backend running at: **http://localhost:8000/api/**
+Backend running at: **http://localhost:8000/api/**
 
 ---
 
@@ -111,7 +111,7 @@ cp .env.example .env
 npm run dev
 ```
 
-✅ Frontend running at: **http://localhost:5173/**
+Frontend running at: **http://localhost:5173/**
 
 ---
 
@@ -137,9 +137,9 @@ npm run dev
 ```
 
 **Access:**
-- 🌐 Frontend: http://localhost:5173
-- 🔌 API: http://localhost:8000/api/
-- 👤 Admin: http://localhost:8000/admin/
+- Frontend: http://localhost:5173
+- API: http://localhost:8000/api/
+- Admin: http://localhost:8000/admin/
 
 ---
 
