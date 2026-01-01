@@ -19,13 +19,13 @@ export const Header: React.FC<HeaderProps> = ({ currentPreset, onPresetChange })
   };
 
   return (
-    <header className={`relative ${theme.headerBg} ${theme.headerText} overflow-visible`}>
-      <div className="relative z-10 max-w-7xl mx-auto px-4 py-4 sm:py-5">
+    <header className={`relative ${theme.headerBg} ${theme.headerText} overflow-visible rounded-b-3xl`}>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-6 sm:py-8">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-3">
-            <GraduationCap size={32} />
+          <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <GraduationCap size={36} className="sm:w-10 sm:h-10" />
             <div>
-              <h1 className="text-xl sm:text-2xl font-bold tracking-tight">College Rankings</h1>
+              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">College Rankings</h1>
               <p className={`${theme.headerAccent} text-xs`}>Global University Aggregator</p>
             </div>
           </Link>
@@ -33,13 +33,13 @@ export const Header: React.FC<HeaderProps> = ({ currentPreset, onPresetChange })
           <div className="flex items-center gap-4 sm:gap-6">
             {/* Desktop navigation */}
             <nav className="hidden md:flex gap-6">
-              <Link to="/" className={`hover:opacity-70 transition font-medium text-sm`}>
+              <Link to="/" className={`${theme.accentColor} hover:scale-110 transition-transform font-medium text-sm`}>
                 Home
               </Link>
-              <Link to="/international" className={`hover:opacity-70 transition font-medium text-sm`}>
+              <Link to="/international" className={`${theme.accentColor} hover:scale-110 transition-transform font-medium text-sm`}>
                 International
               </Link>
-              <Link to="/american" className={`hover:opacity-70 transition font-medium text-sm`}>
+              <Link to="/american" className={`${theme.accentColor} hover:scale-110 transition-transform font-medium text-sm`}>
                 US Colleges
               </Link>
             </nav>
