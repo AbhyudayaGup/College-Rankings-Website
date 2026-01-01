@@ -61,87 +61,89 @@ export const Home: React.FC<HomeProps> = ({ currentPreset, onPresetChange }) => 
   };
 
   return (
-    <div className="min-h-screen bg-transparent">
+    <div className="min-h-screen max-h-screen overflow-hidden bg-transparent flex flex-col">
       <Header currentPreset={currentPreset} onPresetChange={onPresetChange} />
 
-      <main className="max-w-7xl mx-auto px-4 py-8 sm:py-12">
-        {/* Hero Section */}
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className={`text-3xl sm:text-4xl font-bold ${theme.textPrimary} mb-4 drop-shadow-lg`}>
+      <main className="flex-1 overflow-y-auto max-w-7xl mx-auto px-4 py-4 w-full">
+        {/* Hero Section - Compact */}
+        <div className="text-center mb-4">
+          <h2 className={`text-3xl sm:text-4xl font-bold ${theme.textPrimary} mb-2 drop-shadow-lg`}>
             Discover the World's Best Colleges
           </h2>
-          <p className={`text-lg sm:text-xl ${theme.textSecondary} max-w-2xl mx-auto`}>
+          <p className={`text-base sm:text-lg ${theme.textSecondary} max-w-2xl mx-auto`}>
             Compare universities from 10 global ranking systems in one place
           </p>
         </div>
 
-        {/* Search Bar */}
-        <SearchBar
-          onSearch={handleSearch}
-          placeholder="Search for a university..."
-          theme={theme}
-        />
+        {/* Search Bar - Compact */}
+        <div className="mb-4">
+          <SearchBar
+            onSearch={handleSearch}
+            placeholder="Search for a university..."
+            theme={theme}
+          />
+        </div>
 
-        {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-          <div className={`${theme.cardBg} rounded-lg p-4 text-center`}>
-            <Award className={`w-8 h-8 ${theme.accentColor} mx-auto mb-2`} />
-            <p className={`text-2xl font-bold ${theme.cardText}`}>10</p>
-            <p className={`text-sm ${theme.cardTextMuted}`}>Ranking Systems</p>
+        {/* Stats Section - Bigger Icons */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+          <div className={`${theme.cardBg} rounded-xl p-4 text-center transform hover:scale-105 transition-transform`}>
+            <Award className={`w-12 h-12 ${theme.accentColor} mx-auto mb-2`} />
+            <p className={`text-3xl font-bold ${theme.cardText}`}>10</p>
+            <p className={`text-xs ${theme.cardTextMuted}`}>Ranking Systems</p>
           </div>
-          <div className={`${theme.cardBg} rounded-lg p-4 text-center`}>
-            <Globe className={`w-8 h-8 ${theme.accentColor} mx-auto mb-2`} />
-            <p className={`text-2xl font-bold ${theme.cardText}`}>5</p>
-            <p className={`text-sm ${theme.cardTextMuted}`}>International</p>
+          <div className={`${theme.cardBg} rounded-xl p-4 text-center transform hover:scale-105 transition-transform`}>
+            <Globe className={`w-12 h-12 ${theme.accentColor} mx-auto mb-2`} />
+            <p className={`text-3xl font-bold ${theme.cardText}`}>5</p>
+            <p className={`text-xs ${theme.cardTextMuted}`}>International</p>
           </div>
-          <div className={`${theme.cardBg} rounded-lg p-4 text-center`}>
-            <Users className={`w-8 h-8 ${theme.accentColor} mx-auto mb-2`} />
-            <p className={`text-2xl font-bold ${theme.cardText}`}>5</p>
-            <p className={`text-sm ${theme.cardTextMuted}`}>US Rankings</p>
+          <div className={`${theme.cardBg} rounded-xl p-4 text-center transform hover:scale-105 transition-transform`}>
+            <Users className={`w-12 h-12 ${theme.accentColor} mx-auto mb-2`} />
+            <p className={`text-3xl font-bold ${theme.cardText}`}>5</p>
+            <p className={`text-xs ${theme.cardTextMuted}`}>US Rankings</p>
           </div>
-          <div className={`${theme.cardBg} rounded-lg p-4 text-center`}>
-            <BarChart3 className={`w-8 h-8 ${theme.accentColor} mx-auto mb-2`} />
-            <p className={`text-2xl font-bold ${theme.cardText}`}>100+</p>
-            <p className={`text-sm ${theme.cardTextMuted}`}>Universities</p>
+          <div className={`${theme.cardBg} rounded-xl p-4 text-center transform hover:scale-105 transition-transform`}>
+            <BarChart3 className={`w-12 h-12 ${theme.accentColor} mx-auto mb-2`} />
+            <p className={`text-3xl font-bold ${theme.cardText}`}>100+</p>
+            <p className={`text-xs ${theme.cardTextMuted}`}>Universities</p>
           </div>
         </div>
 
-        {/* Region Toggle */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+        {/* Region Toggle - Compact */}
+        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-4">
           <button
             onClick={() => setSelectedRegion('INTERNATIONAL')}
-            className={`px-6 sm:px-8 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition ${
+            className={`px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all transform hover:scale-105 ${
               selectedRegion === 'INTERNATIONAL'
-                ? `${theme.buttonPrimary} ${theme.buttonPrimaryText} shadow-lg`
+                ? `${theme.buttonPrimary} ${theme.buttonPrimaryText} shadow-xl`
                 : `${theme.buttonSecondary} ${theme.buttonSecondaryText}`
             }`}
           >
-            <Globe size={20} />
+            <Globe size={24} />
             International Rankings
           </button>
           <button
             onClick={() => setSelectedRegion('AMERICAN')}
-            className={`px-6 sm:px-8 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition ${
+            className={`px-6 py-3 rounded-xl font-semibold flex items-center justify-center gap-2 transition-all transform hover:scale-105 ${
               selectedRegion === 'AMERICAN'
-                ? `${theme.buttonPrimary} ${theme.buttonPrimaryText} shadow-lg`
+                ? `${theme.buttonPrimary} ${theme.buttonPrimaryText} shadow-xl`
                 : `${theme.buttonSecondary} ${theme.buttonSecondaryText}`
             }`}
           >
-            <Users size={20} />
+            <Users size={24} />
             US Colleges
           </button>
         </div>
 
-        {/* View Mode Selector */}
-        <div className={`${theme.cardBg} rounded-xl p-4 mb-8`}>
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-4">
+        {/* View Mode Selector - Compact */}
+        <div className={`${theme.cardBg} rounded-xl p-3 mb-4`}>
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-3">
             {/* View Mode Toggle */}
             <div className="flex items-center gap-2">
-              <span className={`${theme.cardTextMuted} font-medium`}>View:</span>
-              <div className={`flex ${theme.mode === 'dark' ? 'bg-gray-700/50' : 'bg-gray-100'} rounded-lg p-1`}>
+              <span className={`${theme.cardTextMuted} font-medium text-sm`}>View:</span>
+              <div className={`flex ${theme.mode === 'dark' ? 'bg-blue-800/30' : 'bg-purple-100'} rounded-lg p-1`}>
                 <button
                   onClick={() => setViewMode('composite')}
-                  className={`px-4 py-2 rounded-md font-medium transition ${
+                  className={`px-3 py-2 rounded-md font-medium transition text-sm ${
                     viewMode === 'composite'
                       ? `${theme.buttonPrimary} ${theme.buttonPrimaryText} shadow`
                       : `${theme.cardTextMuted} hover:opacity-70`
@@ -151,7 +153,7 @@ export const Home: React.FC<HomeProps> = ({ currentPreset, onPresetChange }) => 
                 </button>
                 <button
                   onClick={() => setViewMode('index')}
-                  className={`px-4 py-2 rounded-md font-medium transition ${
+                  className={`px-3 py-2 rounded-md font-medium transition text-sm ${
                     viewMode === 'index'
                       ? `${theme.buttonPrimary} ${theme.buttonPrimaryText} shadow`
                       : `${theme.cardTextMuted} hover:opacity-70`
@@ -216,41 +218,39 @@ export const Home: React.FC<HomeProps> = ({ currentPreset, onPresetChange }) => 
 
           {/* Composite Algorithm Info */}
           {viewMode === 'composite' && (
-            <div className={`mt-4 p-3 rounded-lg ${theme.mode === 'dark' ? 'bg-white/10' : 'bg-blue-50'}`}>
-              <p className={`text-sm ${theme.mode === 'dark' ? 'text-white/80' : 'text-blue-800'}`}>
-                <strong>📊 Composite Score Algorithm:</strong> The average is calculated from all available rankings 
-                for each university. Universities with more rankings are weighted equally - missing rankings are 
-                simply excluded from the average, not penalized.
+            <div className={`mt-3 p-2 rounded-lg text-xs ${theme.mode === 'dark' ? 'bg-purple-900/20 text-purple-200' : 'bg-purple-50 text-purple-800'}`}>
+              <p>
+                <strong>📊 Composite Score:</strong> Average from all available rankings. Missing rankings are excluded, not penalized.
               </p>
             </div>
           )}
 
           {/* Selected Index Info */}
           {viewMode === 'index' && selectedSource && (
-            <div className={`mt-4 p-3 rounded-lg flex items-center justify-between ${theme.mode === 'dark' ? 'bg-white/10' : 'bg-green-50'}`}>
-              <p className={`text-sm ${theme.mode === 'dark' ? 'text-white/80' : 'text-green-800'}`}>
-                <strong>📋 {selectedSource.name}:</strong> Viewing rankings from this specific index only.
+            <div className={`mt-3 p-2 rounded-lg flex items-center justify-between text-xs ${theme.mode === 'dark' ? 'bg-indigo-900/20 text-indigo-200' : 'bg-indigo-50 text-indigo-800'}`}>
+              <p>
+                <strong>📋 {selectedSource.name}:</strong> Viewing this index only.
               </p>
               <a 
                 href={selectedSource.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`flex items-center gap-1 font-medium text-sm ${theme.mode === 'dark' ? 'text-white/70 hover:text-white' : 'text-green-700 hover:text-green-900'}`}
+                className={`flex items-center gap-1 font-medium ${theme.mode === 'dark' ? 'text-purple-300 hover:text-purple-100' : 'text-purple-700 hover:text-purple-900'}`}
               >
-                Visit Official Site <ExternalLink size={14} />
+                Visit <ExternalLink size={12} />
               </a>
             </div>
           )}
         </div>
 
-        {/* Rankings Display */}
-        <section>
-          <h3 className={`text-xl sm:text-2xl font-bold ${theme.textPrimary} mb-6`}>
+        {/* Rankings Display - Compact */}
+        <section className="mb-6">
+          <h3 className={`text-lg sm:text-xl font-bold ${theme.textPrimary} mb-3`}>
             {viewMode === 'composite' 
               ? (selectedRegion === 'INTERNATIONAL'
-                  ? 'Top International Universities (Composite Score)'
-                  : 'Top US Colleges (Composite Score)')
-              : `Rankings by ${selectedSource?.name || 'Selected Index'}`
+                  ? 'Top International Universities'
+                  : 'Top US Colleges')
+              : `${selectedSource?.shortName || 'Rankings'}`
             }
           </h3>
           
@@ -269,14 +269,9 @@ export const Home: React.FC<HomeProps> = ({ currentPreset, onPresetChange }) => 
           )}
         </section>
 
-        {/* Footer */}
-        <footer className={`mt-16 pt-8 border-t ${theme.borderColor} text-center ${theme.footerText} text-sm`}>
-          <p>
-            Data aggregated from QS, THE, ARWU, US News, Forbes, Niche, and more.
-          </p>
-          <p className="mt-2">
-            Rankings are updated periodically from public sources.
-          </p>
+        {/* Footer - Compact */}
+        <footer className={`mt-6 pt-4 border-t ${theme.borderColor} text-center ${theme.footerText} text-xs`}>
+          <p>Data aggregated from QS, THE, ARWU, US News, Forbes, Niche, and more • Updated periodically</p>
         </footer>
       </main>
     </div>
