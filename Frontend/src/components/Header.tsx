@@ -19,27 +19,27 @@ export const Header: React.FC<HeaderProps> = ({ currentPreset, onPresetChange })
   };
 
   return (
-    <header className={`relative ${theme.headerBg} ${theme.headerText} overflow-visible rounded-b-3xl`}>
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-6 sm:py-8">
+    <header className={`relative ${theme.headerBg} ${theme.headerText} overflow-visible`}>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 py-4 sm:py-5">
         <div className="flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-4">
-            <GraduationCap size={42} className={theme.accentColor} />
+          <Link to="/" className="flex items-center gap-3">
+            <GraduationCap size={32} />
             <div>
-              <h1 className="text-2xl sm:text-3xl font-bold tracking-tight">{PARTICLE_PRESETS[currentPreset].name === 'Dark Mode' ? '🎓 ' : ''}College Rankings</h1>
-              <p className={`${theme.headerAccent} text-sm font-medium`}>Global University Aggregator</p>
+              <h1 className="text-xl sm:text-2xl font-bold tracking-tight">College Rankings</h1>
+              <p className={`${theme.headerAccent} text-xs`}>Global University Aggregator</p>
             </div>
           </Link>
 
-          <div className="flex items-center gap-4 sm:gap-8">
+          <div className="flex items-center gap-4 sm:gap-6">
             {/* Desktop navigation */}
-            <nav className="hidden md:flex gap-8">
-              <Link to="/" className={`hover:${theme.accentColor} transition font-semibold text-base ${theme.headerAccent}`}>
+            <nav className="hidden md:flex gap-6">
+              <Link to="/" className={`hover:opacity-70 transition font-medium text-sm`}>
                 Home
               </Link>
-              <Link to="/international" className={`hover:${theme.accentColor} transition font-semibold text-base ${theme.headerAccent}`}>
+              <Link to="/international" className={`hover:opacity-70 transition font-medium text-sm`}>
                 International
               </Link>
-              <Link to="/american" className={`hover:${theme.accentColor} transition font-semibold text-base ${theme.headerAccent}`}>
+              <Link to="/american" className={`hover:opacity-70 transition font-medium text-sm`}>
                 US Colleges
               </Link>
             </nav>
